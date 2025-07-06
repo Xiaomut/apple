@@ -1,0 +1,32 @@
+开始时间,结束时间,报警代码,ErrorDetail,报警详情,报警分类,持续时间,工站
+2025/6/24 8:09:54,2025/6/24 8:10:01,F01ESSE-01-03,Emergency Stop Alarm,设备急停报警,Safety Error,6.91,S2
+2025/6/24 8:12:24,2025/6/24 8:12:24,F01ESSE-01-03,Emergency stop alarm,设备急停报警,Safety Error,0.38,S4
+2025/6/24 8:34:17,2025/6/24 8:34:19,M99EEDE-04-03,1# Loading Y-axis - Alarm,1#Carrier上料Y轴报警,Motion Error,2.01,S2
+2025/6/24 8:39:35,2025/6/24 8:39:37,F01ESSE-01-03,Emergency stop alarm,设备急停报警,Safety Error,2.36,S4
+2025/6/24 8:34:40,2025/6/24 8:38:07,C04PNCY-29-03,Mainline Updown3 Cylinder Alarm ,YV0211_主流线顶升3上顶气缸报警,Cylinder Error,206.09,S2
+2025/6/24 8:38:33,2025/6/24 8:39:26,M99EEDE-18-03,15# CHG Assembly Z-axis - Alarm,15#CHG组装Z轴报警,Motion Error,53,S2
+2025/6/24 8:39:29,2025/6/24 8:39:34,M99EEDE-18-03,15# CHG Assembly Z-axis - Alarm,15#CHG组装Z轴报警,Motion Error,5.15,S2
+2025/6/24 8:39:35,2025/6/24 8:39:35,M99EEDE-18-03,15# CHG Assembly Z-axis - Alarm,15#CHG组装Z轴报警,Motion Error,0.19,S2
+2025/6/24 8:39:35,2025/6/24 8:39:35,M99EEDE-18-03,15# CHG Assembly Z-axis - Alarm,15#CHG组装Z轴报警,Motion Error,0.21,S2
+2025/6/24 8:39:36,2025/6/24 8:39:36,M99EEDE-18-03,15# CHG Assembly Z-axis - Alarm,15#CHG组装Z轴报警,Motion Error,0.11,S2
+2025/6/24 8:39:38,2025/6/24 8:39:38,M99EEDE-18-03,15# CHG Assembly Z-axis - Alarm,15#CHG组装Z轴报警,Motion Error,0.42,S2
+2025/6/24 8:39:39,2025/6/24 8:39:39,M99EEDE-18-03,15# CHG Assembly Z-axis - Alarm,15#CHG组装Z轴报警,Motion Error,0.11,S2
+2025/6/24 8:40:18,2025/6/24 8:40:22,M99EEDE-15-03,12# CHG Assembly X-axis - Alarm,12#CHG组装X轴报警,Motion Error,3.66,S2
+2025/6/24 8:40:33,2025/6/24 8:40:34,F01ESSE-01-03,Emergency Stop Alarm,设备急停报警,Safety Error,1.38,S2
+2025/6/24 13:01:32,2025/6/24 13:01:33,V03VSDV-64-03,CCD1 SPK Assembly Connect Failed,CCD1-SPK组装-连接失败,Vision Error,0.48,S2
+2025/6/24 13:01:35,2025/6/24 13:03:28,V03VSDV-64-03,CCD1 SPK Assembly Connect Failed,CCD1-SPK组装-连接失败,Vision Error,113.07,S2
+2025/6/24 13:30:32,2025/6/24 13:30:48,U01VGVV-62-03,CHG Feeding Vacuum Alarm ,YVV0205_CHG取料真空报警,Vacuum Error,16.84,S2
+2025/6/24 13:30:58,2025/6/24 13:31:00,V02VSDV-156-03,Popup:Platform1 Rejude Photography Failed,弹窗:平台1复检拍照失败,Vision Error,2.22,S2
+2025/6/24 14:00:25,2025/6/24 14:00:25,V03VSDV-108-03,CCD1 communication connection abnormality,CCD1通讯连接异常,Vision Error,0.53,S4
+2025/6/24 14:00:30,2025/6/24 14:01:32,V03VSDV-108-03,CCD1 communication connection abnormality,CCD1通讯连接异常,Vision Error,61.61,S4
+2025/6/24 14:01:48,2025/6/24 14:01:48,V03VSDV-108-03,CCD1 communication connection abnormality,CCD1通讯连接异常,Vision Error,0.52,S4
+2025/6/24 14:01:50,2025/6/24 14:03:00,V03VSDV-108-03,CCD1 communication connection abnormality,CCD1通讯连接异常,Vision Error,69.99,S4
+2025/6/24 14:15:32,2025/6/24 14:15:57,V02VSDV-156-03,Popup:Platform1 Rejude Photography Failed,弹窗:平台1复检拍照失败,Vision Error,24.91,S2
+2025/6/24 14:23:40,2025/6/24 14:24:48,V03VSDV-64-03,CCD1 SPK Assembly Connect Failed,CCD1-SPK组装-连接失败,Vision Error,67.09,S2
+2025/6/24 14:26:22,2025/6/24 14:26:48,V02VSDV-156-03,Popup:Platform1 Rejude Photography Failed,弹窗:平台1复检拍照失败,Vision Error,25.82,S2
+2025/6/24 14:31:51,2025/6/24 14:33:14,V01VSDV-126-03,Popup:Picking Up SPK Top Photography Failed,弹窗:取SPK上相机拍照失败,Vision Error,82.47,S2
+2025/6/24 18:16:55,2025/6/24 18:17:06,V02VSDV-156-03,Popup:Platform1 Rejude Photography Failed,弹窗:平台1复检拍照失败,Vision Error,10.99,S2
+2025/6/24 19:03:00,2025/6/24 19:03:09,V02VSDV-156-03,Popup:Platform1 Rejude Photography Failed,弹窗:平台1复检拍照失败,Vision Error,9.29,S2
+2025/6/24 19:08:06,2025/6/24 19:08:18,V02VSDV-156-03,Popup:Platform1 Rejude Photography Failed,弹窗:平台1复检拍照失败,Vision Error,11.72,S2
+2025/6/24 19:25:42,2025/6/24 19:26:08,V02VSDV-156-03,Popup:Platform1 Rejude Photography Failed,弹窗:平台1复检拍照失败,Vision Error,26.57,S2
+2025/6/24 19:33:45,2025/6/24 19:33:57,F01ESSE-01-03,Emergency Stop Alarm,设备急停报警,Safety Error,12.93,S2

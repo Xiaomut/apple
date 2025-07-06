@@ -1,0 +1,29 @@
+开始时间,结束时间,报警代码,ErrorDetail,报警详情,报警分类,持续时间,工站
+2025/6/23 8:09:58,2025/6/23 8:10:04,F01ESSE-01-03,Emergency Stop Alarm,设备急停报警,Safety Error,6.9,S2
+2025/6/23 8:12:37,2025/6/23 8:12:38,F01ESSE-01-03,Emergency stop alarm,设备急停报警,Safety Error,0.53,S4
+2025/6/23 8:44:16,2025/6/23 8:44:17,M99EEDE-07-03,Lock the screw module X-axis alarm,锁螺丝模组X轴报警,Motion Error,1.08,S4
+2025/6/23 8:42:51,2025/6/23 8:42:54,M99EEDE-04-03,1# Loading Y-axis - Alarm,1#Carrier上料Y轴报警,Motion Error,2.75,S2
+2025/6/23 8:59:39,2025/6/23 9:00:00,N03IPPO-79-03,PC Communication Abnormality,上位机通讯异常,Software Error,20.31,S2
+2025/6/23 9:00:58,2025/6/23 9:01:01,N03IPPO-79-03,PC Communication Abnormality,上位机通讯异常,Software Error,3.44,S2
+2025/6/23 9:01:38,2025/6/23 9:01:38,N03IPPO-79-03,PC Communication Abnormality,上位机通讯异常,Software Error,0.11,S2
+2025/6/23 12:36:21,2025/6/23 12:36:45,C04PNCY-24-03,Mainline Updown2 Cylinder Alarm ,YV0206_主流线顶升2上顶气缸报警,Cylinder Error,24.33,S2
+2025/6/23 12:38:11,2025/6/23 12:38:41,V02VSDV-156-03,Popup:Platform1 Rejude Photography Failed,弹窗:平台1复检拍照失败,Vision Error,29.71,S2
+2025/6/23 12:38:59,2025/6/23 12:41:51,C04PNCY-37-03,Platform1 Rotating Clamping Cylinder Alarm ,YV0219_定位平台1Carrier旋转夹紧气缸报警,Cylinder Error,172,S2
+2025/6/23 12:42:52,2025/6/23 12:42:54,V01VSDV-131-03,Popup:Platform1 SPK Assembly Top Photography Failed,弹窗:组SPK上相机拍照失败1,Vision Error,2.74,S2
+2025/6/23 12:47:54,2025/6/23 12:48:32,C04PNCY-37-03,Platform1 Rotating Clamping Cylinder Alarm ,YV0219_定位平台1Carrier旋转夹紧气缸报警,Cylinder Error,37.56,S2
+2025/6/23 12:48:42,2025/6/23 12:49:37,C04PNCY-37-03,Platform1 Rotating Clamping Cylinder Alarm ,YV0219_定位平台1Carrier旋转夹紧气缸报警,Cylinder Error,54.49,S2
+2025/6/23 12:51:32,2025/6/23 12:51:57,V01VSDV-126-03,Popup:Picking Up SPK Top Photography Failed,弹窗:取SPK上相机拍照失败,Vision Error,25.01,S2
+2025/6/23 12:56:45,2025/6/23 12:57:07,V01VSDV-126-03,Popup:Picking Up SPK Top Photography Failed,弹窗:取SPK上相机拍照失败,Vision Error,22.45,S2
+2025/6/23 13:50:02,2025/6/23 13:50:09,V02VSDV-156-03,Popup:Platform1 Rejude Photography Failed,弹窗:平台1复检拍照失败,Vision Error,6.3,S2
+2025/6/23 15:05:39,2025/6/23 15:05:49,C02PNCY-40-03,Main line jacking up 3Carrier press open cylinder alarm,主流线顶升3Carrier 压料打开气缸报警,Cylinder Error,10.77,S4
+2025/6/23 16:02:54,2025/6/23 16:02:57,C02PNCY-40-03,Main line jacking up 3Carrier press open cylinder alarm,主流线顶升3Carrier 压料打开气缸报警,Cylinder Error,2.11,S4
+2025/6/23 16:07:53,2025/6/23 16:08:07,U01VGVV-62-03,CHG Feeding Vacuum Alarm ,YVV0205_CHG取料真空报警,Vacuum Error,13.36,S2
+2025/6/23 16:08:09,2025/6/23 16:08:26,U01VGVV-62-03,CHG Feeding Vacuum Alarm ,YVV0205_CHG取料真空报警,Vacuum Error,16.64,S2
+2025/6/23 18:06:17,2025/6/23 18:06:27,U01VGVV-62-03,CHG Feeding Vacuum Alarm ,YVV0205_CHG取料真空报警,Vacuum Error,9.83,S2
+2025/6/23 18:07:20,2025/6/23 18:07:26,U01VGVV-62-03,CHG Feeding Vacuum Alarm ,YVV0205_CHG取料真空报警,Vacuum Error,6.34,S2
+2025/6/23 18:07:29,2025/6/23 18:07:34,U01VGVV-62-03,CHG Feeding Vacuum Alarm ,YVV0205_CHG取料真空报警,Vacuum Error,4.94,S2
+2025/6/23 18:26:31,2025/6/23 18:26:33,V02VSDV-156-03,Popup:Platform1 Rejude Photography Failed,弹窗:平台1复检拍照失败,Vision Error,2.06,S2
+2025/6/23 18:26:45,2025/6/23 18:26:49,C04PNCY-43-03,Platform1 CHG Holding Updown Cylinder Alarm ,YV0225_定位平台1CHG压料升降气缸报警,Cylinder Error,3.93,S2
+2025/6/23 18:27:01,2025/6/23 18:27:42,C04PNCY-43-03,Platform1 CHG Holding Updown Cylinder Alarm ,YV0225_定位平台1CHG压料升降气缸报警,Cylinder Error,40.78,S2
+2025/6/23 19:35:21,2025/6/23 19:36:54,V01VSDV-131-03,Popup:Platform1 SPK Assembly Top Photography Failed,弹窗:组SPK上相机拍照失败1,Vision Error,92.16,S2
+2025/6/23 19:37:24,2025/6/23 19:37:40,V01VSDV-131-03,Popup:Platform1 SPK Assembly Top Photography Failed,弹窗:组SPK上相机拍照失败1,Vision Error,15.48,S2

@@ -1,0 +1,14 @@
+开始时间,结束时间,报警代码,ErrorDetail,报警详情,报警分类,持续时间,工站
+2025/6/21 1:36:47,2025/6/21 1:36:56,F01ESSE-01-03,Emergency stop alarm,设备急停报警,Safety Error,9.08,S4
+2025/6/21 1:35:18,2025/6/21 1:35:23,F01ESSE-01-03,Emergency Stop Alarm,设备急停报警,Safety Error,5.33,S2
+2025/6/21 15:09:05,2025/6/21 15:10:03,U01VGVV-62-03,CHG Feeding Vacuum Alarm ,YVV0205_CHG取料真空报警,Vacuum Error,58.42,S2
+2025/6/21 21:44:23,2025/6/21 21:44:43,U01VGVV-62-03,CHG Feeding Vacuum Alarm ,YVV0205_CHG取料真空报警,Vacuum Error,19.73,S2
+2025/6/21 21:44:46,2025/6/21 21:44:53,U01VGVV-62-03,CHG Feeding Vacuum Alarm ,YVV0205_CHG取料真空报警,Vacuum Error,6.85,S2
+2025/6/21 22:54:03,2025/6/21 22:54:09,C04PNCY-37-03,Platform1 Rotating Clamping Cylinder Alarm ,YV0219_定位平台1Carrier旋转夹紧气缸报警,Cylinder Error,5.43,S2
+2025/6/21 22:55:04,2025/6/21 22:55:18,C04PNCY-37-03,Platform1 Rotating Clamping Cylinder Alarm ,YV0219_定位平台1Carrier旋转夹紧气缸报警,Cylinder Error,14.17,S2
+2025/6/21 22:55:32,2025/6/21 22:55:47,C04PNCY-37-03,Platform1 Rotating Clamping Cylinder Alarm ,YV0219_定位平台1Carrier旋转夹紧气缸报警,Cylinder Error,15.82,S2
+2025/6/21 22:56:04,2025/6/21 22:56:06,C04PNCY-37-03,Platform1 Rotating Clamping Cylinder Alarm ,YV0219_定位平台1Carrier旋转夹紧气缸报警,Cylinder Error,2,S2
+2025/6/21 22:56:17,2025/6/21 22:56:20,C04PNCY-37-03,Platform1 Rotating Clamping Cylinder Alarm ,YV0219_定位平台1Carrier旋转夹紧气缸报警,Cylinder Error,2.43,S2
+2025/6/21 23:11:39,2025/6/21 23:11:50,V02VSDV-123-03,Pop up: Platform 1 lock screw on camera to take NG,弹窗:平台1锁螺丝上相机拍照NG,Vision Error,11,S4
+2025/6/21 23:11:52,2025/6/21 23:12:25,V02VSDV-123-03,Pop up: Platform 1 lock screw on camera to take NG,弹窗:平台1锁螺丝上相机拍照NG,Vision Error,33.29,S4
+2025/6/21 23:12:27,2025/6/21 23:12:41,V02VSDV-123-03,Pop up: Platform 1 lock screw on camera to take NG,弹窗:平台1锁螺丝上相机拍照NG,Vision Error,14.06,S4
