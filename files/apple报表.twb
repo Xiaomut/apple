@@ -1,0 +1,707 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20252.25.0514.2217                               -->
+<workbook original-version='18.1' source-build='2025.2.0 (20252.25.0514.2217)' source-platform='win' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <AnimationOnByDefault />
+    <MarkAnimation />
+    <ObjectModelEncapsulateLegacy />
+    <ObjectModelTableType />
+    <SchemaViewerObjectModel />
+    <SheetIdentifierTracking />
+    <WindowsPersistSimpleIdentifiers />
+  </document-format-change-manifest>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+    <datasource caption='warnlog' inline='true' name='federated.121hnvb18hsohh1dyc8sw0mv0qgh' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='warnlog' name='textscan.0melz8h0agrv1x11zpdi508hqam6'>
+            <connection class='textscan' directory='E:/Python/apple/files' filename='warnlog.csv' password='' server='' />
+          </named-connection>
+        </named-connections>
+        <relation connection='textscan.0melz8h0agrv1x11zpdi508hqam6' name='warnlog.csv' table='[warnlog#csv]' type='table'>
+          <columns character-set='UTF-8' header='yes' locale='zh_CN' separator=','>
+            <column datatype='date' name='开始时间' ordinal='0' />
+            <column datatype='date' name='结束时间' ordinal='1' />
+            <column datatype='string' name='报警代码' ordinal='2' />
+            <column datatype='string' name='ErrorDetail' ordinal='3' />
+            <column datatype='string' name='报警详情' ordinal='4' />
+            <column datatype='string' name='报警分类' ordinal='5' />
+            <column datatype='real' name='持续时间' ordinal='6' />
+            <column datatype='string' name='工站' ordinal='7' />
+            <column datatype='date' name='日期' ordinal='8' />
+          </columns>
+        </relation>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[warnlog.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;zh_Hans_CN&quot;</attribute>
+              <attribute datatype='string' name='currency'>&quot;¥&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;zh_CN&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>开始时间</remote-name>
+            <remote-type>135</remote-type>
+            <local-name>[开始时间]</local-name>
+            <parent-name>[warnlog.csv]</parent-name>
+            <remote-alias>开始时间</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>datetime</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>结束时间</remote-name>
+            <remote-type>135</remote-type>
+            <local-name>[结束时间]</local-name>
+            <parent-name>[warnlog.csv]</parent-name>
+            <remote-alias>结束时间</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>datetime</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>报警代码</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[报警代码]</local-name>
+            <parent-name>[warnlog.csv]</parent-name>
+            <remote-alias>报警代码</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LZH_RCN' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>ErrorDetail</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[ErrorDetail]</local-name>
+            <parent-name>[warnlog.csv]</parent-name>
+            <remote-alias>ErrorDetail</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LZH_RCN' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>报警详情</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[报警详情]</local-name>
+            <parent-name>[warnlog.csv]</parent-name>
+            <remote-alias>报警详情</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LZH_RCN' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>报警分类</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[报警分类]</local-name>
+            <parent-name>[warnlog.csv]</parent-name>
+            <remote-alias>报警分类</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LZH_RCN' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>持续时间</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[持续时间]</local-name>
+            <parent-name>[warnlog.csv]</parent-name>
+            <remote-alias>持续时间</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>工站</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[工站]</local-name>
+            <parent-name>[warnlog.csv]</parent-name>
+            <remote-alias>工站</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LZH_RCN' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>日期</remote-name>
+            <remote-type>133</remote-type>
+            <local-name>[日期]</local-name>
+            <parent-name>[warnlog.csv]</parent-name>
+            <remote-alias>日期</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='Error Detail' datatype='string' name='[ErrorDetail]' role='dimension' type='nominal' />
+      <column caption='warnlog.csv' datatype='table' name='[__tableau_internal_object_id__].[warnlog.csv_48D7279A316D42ECB57A628CC5416BFC]' role='measure' type='quantitative' />
+      <column datatype='date' name='[开始时间]' role='dimension' type='ordinal' />
+      <column datatype='real' name='[持续时间]' role='dimension' type='quantitative' />
+      <column-instance column='[__tableau_internal_object_id__].[warnlog.csv_48D7279A316D42ECB57A628CC5416BFC]' derivation='Count' name='[__tableau_internal_object_id__].[cnt:warnlog.csv_48D7279A316D42ECB57A628CC5416BFC:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[持续时间]' derivation='Avg' name='[avg:持续时间:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[开始时间]' derivation='Count' name='[cnt:开始时间:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[持续时间]' derivation='Sum' name='[sum:持续时间:qk]' pivot='key' type='quantitative' />
+      <layout dim-ordering='alphabetic' measure-ordering='alphabetic' show-structure='true' />
+      <style>
+        <style-rule element='mark'>
+          <encoding attr='color' field='[:Measure Names]' type='palette'>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.121hnvb18hsohh1dyc8sw0mv0qgh].[avg:持续时间:qk]&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;[federated.121hnvb18hsohh1dyc8sw0mv0qgh].[__tableau_internal_object_id__].[cnt:warnlog.csv_48D7279A316D42ECB57A628CC5416BFC:qk]&quot;</bucket>
+            </map>
+            <map to='#76b7b2'>
+              <bucket>&quot;[federated.121hnvb18hsohh1dyc8sw0mv0qgh].[sum:持续时间:qk]&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;[federated.121hnvb18hsohh1dyc8sw0mv0qgh]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.121hnvb18hsohh1dyc8sw0mv0qgh].[cnt:开始时间:qk]&quot;</bucket>
+            </map>
+          </encoding>
+        </style-rule>
+      </style>
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;中国&quot;' />
+      </semantic-values>
+      <date-options start-of-week='monday' />
+      <field-sort-info field-sort-order-type='custom-order'>
+        <field-sort-custom-order field='开始时间' />
+        <field-sort-custom-order field='Calculation_1184165257324462082' />
+        <field-sort-custom-order field='结束时间' />
+        <field-sort-custom-order field='报警代码' />
+        <field-sort-custom-order field='ErrorDetail' />
+        <field-sort-custom-order field='报警详情' />
+        <field-sort-custom-order field='报警分类' />
+        <field-sort-custom-order field='持续时间' />
+        <field-sort-custom-order field='工站' />
+        <field-sort-custom-order field='日期' />
+        <field-sort-custom-order field='Geometry (generated)' />
+        <field-sort-custom-order field='Latitude (generated)' />
+        <field-sort-custom-order field='Longitude (generated)' />
+        <field-sort-custom-order field=':Measure Names' />
+        <field-sort-custom-order field='Multiple Values' />
+      </field-sort-info>
+      <object-graph>
+        <objects>
+          <object caption='warnlog.csv' id='warnlog.csv_48D7279A316D42ECB57A628CC5416BFC'>
+            <properties context=''>
+              <relation connection='textscan.0melz8h0agrv1x11zpdi508hqam6' name='warnlog.csv' table='[warnlog#csv]' type='table'>
+                <columns character-set='UTF-8' header='yes' locale='zh_CN' separator=','>
+                  <column datatype='date' name='开始时间' ordinal='0' />
+                  <column datatype='date' name='结束时间' ordinal='1' />
+                  <column datatype='string' name='报警代码' ordinal='2' />
+                  <column datatype='string' name='ErrorDetail' ordinal='3' />
+                  <column datatype='string' name='报警详情' ordinal='4' />
+                  <column datatype='string' name='报警分类' ordinal='5' />
+                  <column datatype='real' name='持续时间' ordinal='6' />
+                  <column datatype='string' name='工站' ordinal='7' />
+                  <column datatype='date' name='日期' ordinal='8' />
+                </columns>
+              </relation>
+            </properties>
+          </object>
+        </objects>
+      </object-graph>
+    </datasource>
+  </datasources>
+  <worksheets>
+    <worksheet name='工作表 1'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run bold='true' fontcolor='#6a737d' fontname='Consolas,Courier New,monospace' fontsize='14'>按日期和报警分类统计</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='warnlog' name='federated.121hnvb18hsohh1dyc8sw0mv0qgh' />
+          </datasources>
+          <datasource-dependencies datasource='federated.121hnvb18hsohh1dyc8sw0mv0qgh'>
+            <column-instance column='[持续时间]' derivation='Avg' name='[avg:持续时间:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[日期]' derivation='Day' name='[dy:日期:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[持续时间]' derivation='Max' name='[max:持续时间:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[开始时间]' derivation='None' name='[none:开始时间:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[报警分类]' derivation='None' name='[none:报警分类:nk]' pivot='key' type='nominal' />
+            <column-instance column='[持续时间]' derivation='Sum' name='[sum:持续时间:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[开始时间]' derivation='Day-Trunc' name='[tdy:开始时间:qk]' pivot='key' type='quantitative' />
+            <column datatype='date' name='[开始时间]' role='dimension' type='ordinal' />
+            <column datatype='string' name='[报警分类]' role='dimension' type='nominal' />
+            <column datatype='real' name='[持续时间]' role='dimension' type='quantitative' />
+            <column datatype='date' name='[日期]' role='dimension' type='ordinal' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.121hnvb18hsohh1dyc8sw0mv0qgh].[dy:日期:ok]'>
+            <groupfilter function='union' user:ui-domain='database' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+              <groupfilter function='member' level='[dy:日期:ok]' member='22' />
+              <groupfilter function='member' level='[dy:日期:ok]' member='23' />
+              <groupfilter function='member' level='[dy:日期:ok]' member='24' />
+              <groupfilter function='member' level='[dy:日期:ok]' member='25' />
+              <groupfilter function='member' level='[dy:日期:ok]' member='26' />
+              <groupfilter function='member' level='[dy:日期:ok]' member='27' />
+              <groupfilter function='member' level='[dy:日期:ok]' member='28' />
+            </groupfilter>
+          </filter>
+          <filter class='quantitative' column='[federated.121hnvb18hsohh1dyc8sw0mv0qgh].[none:开始时间:qk]' included-values='in-range-or-null'>
+            <min>#2025-06-25#</min>
+            <max>#2025-06-28#</max>
+          </filter>
+          <filter class='categorical' column='[federated.121hnvb18hsohh1dyc8sw0mv0qgh].[none:报警分类:nk]'>
+            <groupfilter function='union' user:ui-domain='database' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+              <groupfilter function='member' level='[none:报警分类:nk]' member='&quot;Cylinder Error&quot;' />
+              <groupfilter function='member' level='[none:报警分类:nk]' member='&quot;Motion Error&quot;' />
+              <groupfilter function='member' level='[none:报警分类:nk]' member='&quot;Safety Error&quot;' />
+              <groupfilter function='member' level='[none:报警分类:nk]' member='&quot;Screwing Error&quot;' />
+              <groupfilter function='member' level='[none:报警分类:nk]' member='&quot;Sensor Error&quot;' />
+              <groupfilter function='member' level='[none:报警分类:nk]' member='&quot;Software Error&quot;' />
+              <groupfilter function='member' level='[none:报警分类:nk]' member='&quot;Vacuum Error&quot;' />
+              <groupfilter function='member' level='[none:报警分类:nk]' member='&quot;Vision Error&quot;' />
+            </groupfilter>
+          </filter>
+          <filter class='quantitative' column='[federated.121hnvb18hsohh1dyc8sw0mv0qgh].[tdy:开始时间:qk]' included-values='in-range'>
+            <min>#2025-06-25 00:00:00#</min>
+            <max>#2025-06-28 00:00:00#</max>
+          </filter>
+          <slices>
+            <column>[federated.121hnvb18hsohh1dyc8sw0mv0qgh].[tdy:开始时间:qk]</column>
+            <column>[federated.121hnvb18hsohh1dyc8sw0mv0qgh].[none:开始时间:qk]</column>
+            <column>[federated.121hnvb18hsohh1dyc8sw0mv0qgh].[dy:日期:ok]</column>
+            <column>[federated.121hnvb18hsohh1dyc8sw0mv0qgh].[none:报警分类:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='cell'>
+            <format attr='width' field='[federated.121hnvb18hsohh1dyc8sw0mv0qgh].[dy:日期:ok]' value='105' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane id='1' selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+            <style>
+              <style-rule element='pane'>
+                <format attr='minwidth' value='-1' />
+                <format attr='maxwidth' value='-1' />
+              </style-rule>
+            </style>
+          </pane>
+          <pane id='2' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.121hnvb18hsohh1dyc8sw0mv0qgh].[sum:持续时间:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+            <mark-sizing mark-sizing-setting='marks-scaling-off' />
+            <encodings>
+              <text column='[federated.121hnvb18hsohh1dyc8sw0mv0qgh].[sum:持续时间:qk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-color' value='#f28e2b' />
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='size' value='1.5052486658096313' />
+              </style-rule>
+            </style>
+          </pane>
+          <pane id='3' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.121hnvb18hsohh1dyc8sw0mv0qgh].[avg:持续时间:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+            <encodings>
+              <text column='[federated.121hnvb18hsohh1dyc8sw0mv0qgh].[avg:持续时间:qk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+          <pane id='4' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.121hnvb18hsohh1dyc8sw0mv0qgh].[max:持续时间:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+            <encodings>
+              <text column='[federated.121hnvb18hsohh1dyc8sw0mv0qgh].[max:持续时间:qk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-color' value='#59a14f' />
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>([federated.121hnvb18hsohh1dyc8sw0mv0qgh].[sum:持续时间:qk] + ([federated.121hnvb18hsohh1dyc8sw0mv0qgh].[avg:持续时间:qk] + [federated.121hnvb18hsohh1dyc8sw0mv0qgh].[max:持续时间:qk]))</rows>
+        <cols>([federated.121hnvb18hsohh1dyc8sw0mv0qgh].[none:报警分类:nk] / [federated.121hnvb18hsohh1dyc8sw0mv0qgh].[dy:日期:ok])</cols>
+      </table>
+      <simple-id uuid='{9603F263-DB8F-4577-AE43-CB75D446B5BF}' />
+    </worksheet>
+    <worksheet name='工作表 2'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='warnlog' name='federated.121hnvb18hsohh1dyc8sw0mv0qgh' />
+          </datasources>
+          <datasource-dependencies datasource='federated.121hnvb18hsohh1dyc8sw0mv0qgh'>
+            <column-instance column='[持续时间]' derivation='Avg' name='[avg:持续时间:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[日期]' derivation='Day' name='[dy:日期:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[工站]' derivation='None' name='[none:工站:nk]' pivot='key' type='nominal' />
+            <column-instance column='[持续时间]' derivation='Sum' name='[sum:持续时间:qk]' pivot='key' type='quantitative' />
+            <column datatype='string' name='[工站]' role='dimension' type='nominal' />
+            <column datatype='real' name='[持续时间]' role='dimension' type='quantitative' />
+            <column datatype='date' name='[日期]' role='dimension' type='ordinal' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.121hnvb18hsohh1dyc8sw0mv0qgh].[dy:日期:ok]'>
+            <groupfilter function='union' user:ui-domain='database' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+              <groupfilter function='member' level='[dy:日期:ok]' member='21' />
+              <groupfilter function='member' level='[dy:日期:ok]' member='22' />
+              <groupfilter function='member' level='[dy:日期:ok]' member='23' />
+              <groupfilter function='member' level='[dy:日期:ok]' member='24' />
+              <groupfilter function='member' level='[dy:日期:ok]' member='25' />
+              <groupfilter function='member' level='[dy:日期:ok]' member='26' />
+              <groupfilter function='member' level='[dy:日期:ok]' member='27' />
+              <groupfilter function='member' level='[dy:日期:ok]' member='28' />
+            </groupfilter>
+          </filter>
+          <slices>
+            <column>[federated.121hnvb18hsohh1dyc8sw0mv0qgh].[dy:日期:ok]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane id='1' selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+            <mark-sizing mark-sizing-setting='marks-scaling-off' />
+            <encodings>
+              <color column='[federated.121hnvb18hsohh1dyc8sw0mv0qgh].[:Measure Names]' />
+            </encodings>
+          </pane>
+          <pane id='2' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.121hnvb18hsohh1dyc8sw0mv0qgh].[avg:持续时间:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+            <mark-sizing mark-sizing-setting='marks-scaling-off' />
+            <encodings>
+              <color column='[federated.121hnvb18hsohh1dyc8sw0mv0qgh].[:Measure Names]' />
+            </encodings>
+          </pane>
+          <pane id='3' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.121hnvb18hsohh1dyc8sw0mv0qgh].[sum:持续时间:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+            <mark-sizing mark-sizing-setting='marks-scaling-off' />
+            <encodings>
+              <color column='[federated.121hnvb18hsohh1dyc8sw0mv0qgh].[:Measure Names]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>([federated.121hnvb18hsohh1dyc8sw0mv0qgh].[avg:持续时间:qk] + [federated.121hnvb18hsohh1dyc8sw0mv0qgh].[sum:持续时间:qk])</rows>
+        <cols>([federated.121hnvb18hsohh1dyc8sw0mv0qgh].[none:工站:nk] / [federated.121hnvb18hsohh1dyc8sw0mv0qgh].[dy:日期:ok])</cols>
+      </table>
+      <simple-id uuid='{F12ECBA6-16EA-4B4D-8C78-ECF34B4BAA6B}' />
+    </worksheet>
+  </worksheets>
+  <windows source-height='30'>
+    <window class='worksheet' name='工作表 1' tab-color='#4f779a'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.121hnvb18hsohh1dyc8sw0mv0qgh].[none:报警分类:nk]</field>
+            <field>[federated.121hnvb18hsohh1dyc8sw0mv0qgh].[none:持续时间:qk]</field>
+            <field>[federated.121hnvb18hsohh1dyc8sw0mv0qgh].[tyr:持续时间:qk]</field>
+            <field>[federated.121hnvb18hsohh1dyc8sw0mv0qgh].[yr:开始时间:ok]</field>
+            <field>[federated.121hnvb18hsohh1dyc8sw0mv0qgh].[yr:日期:ok]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{66A11D6B-E233-48F1-8209-46E363902E8F}' />
+    </window>
+    <window class='worksheet' maximized='true' name='工作表 2'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='2' param='[federated.121hnvb18hsohh1dyc8sw0mv0qgh].[:Measure Names]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <selection-collection>
+          <tuple-selection>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields>
+                    <field>[federated.121hnvb18hsohh1dyc8sw0mv0qgh].[none:工站:nk]</field>
+                    <field>[federated.121hnvb18hsohh1dyc8sw0mv0qgh].[dy:日期:ok]</field>
+                  </x-fields>
+                  <y-fields>
+                    <field>[federated.121hnvb18hsohh1dyc8sw0mv0qgh].[avg:持续时间:qk]</field>
+                  </y-fields>
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.121hnvb18hsohh1dyc8sw0mv0qgh].[avg:持续时间:qk]</field>
+                  <field>[federated.121hnvb18hsohh1dyc8sw0mv0qgh].[dy:日期:ok]</field>
+                  <field>[federated.121hnvb18hsohh1dyc8sw0mv0qgh].[none:工站:nk]</field>
+                  <field>[federated.121hnvb18hsohh1dyc8sw0mv0qgh].[:Measure Names]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>5930.2699999999995</value>
+                <value>24</value>
+                <value>&quot;S4&quot;</value>
+                <value>&quot;[federated.121hnvb18hsohh1dyc8sw0mv0qgh].[avg:持续时间:qk]&quot;</value>
+              </tuple>
+            </tuple-reference>
+          </tuple-selection>
+        </selection-collection>
+        <highlight>
+          <color-one-way>
+            <field>[federated.121hnvb18hsohh1dyc8sw0mv0qgh].[:Measure Names]</field>
+            <field>[federated.121hnvb18hsohh1dyc8sw0mv0qgh].[dy:日期:ok]</field>
+            <field>[federated.121hnvb18hsohh1dyc8sw0mv0qgh].[none:工站:nk]</field>
+            <field>[federated.121hnvb18hsohh1dyc8sw0mv0qgh].[none:持续时间:qk]</field>
+            <field>[federated.121hnvb18hsohh1dyc8sw0mv0qgh].[yr:日期:ok]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{DA1FF95D-B3EF-432D-8971-89CDADDBFF69}' />
+    </window>
+  </windows>
+  <thumbnails>
+    <thumbnail height='192' name='工作表 1' width='192'>
+      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
+      u0t3B2QAAAAASUVORK5CYII=
+    </thumbnail>
+    <thumbnail height='192' name='工作表 2' width='192'>
+      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
+      0RgAEu3/Fa+icSsYw7kAAAAASUVORK5CYII=
+    </thumbnail>
+  </thumbnails>
+</workbook>
