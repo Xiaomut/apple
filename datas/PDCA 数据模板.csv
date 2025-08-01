@@ -1,0 +1,223 @@
+Time,,
+HsgSn,,
+SPK_SN,,
+Board_SN,,
+mode,,
+4_HalfAtlasResult,,
+2_FullAtlasResult,,
+1_FullAtlasResult,,
+4_FullAtlasResult,,
+S2S3InstallPTid,,
+S2S3AssyStation,S2S3AssyStation,S2/3 组装机架
+S2S3AssyPlatformId,S2S3AssyPlatformId,S2/3 组装平台
+Lock_PlatformId,,
+LockScrewStation,LockScrewStation,S4/S5锁螺丝机架
+LockScrewPlatformId,LockScrewPlatformId,S4/S5锁螺丝平台
+MaxPressSPKData,MaxPressSPKData,S2/3 组装SPK最大压力
+MaxPressCHGData,MaxPressCHGData,S2/3 组装CHG最大压力
+BracketMaxPress,BracketMaxPress,S4/5 组装Bracket最大压力
+SPK Screw 4_Half FinalTorque,SPK Screw 4_Half FinalTorque,4# Half Lock 最终扭力
+SPK Screw 4_Half FinalAngle,SPK Screw 4_Half FinalAngle,4# Half Lock 最终角度
+SPK Screw 4 PrevailingTorqueMax,SPK Screw 4 PrevailingTorqueMax,坐标系630度前最大扭矩对应的扭力
+SPK Screw 4 PrevailingTorqueMaxAngle,SPK Screw 4 PrevailingTorqueMaxAngle,坐标系630度前最大扭矩对应的角度
+SPK Screw 4_Half RealAngle,SPK Screw 4_Half RealAngle,坐标系上值+反转的值
+SPK Screw 4_Half TorqueAt630,SPK Screw 4_Half TorqueAt630,坐标系上630°时的扭力
+SPK Screw 4_Half Prev torque retest logic,SPK Screw 4_Half Prev torque retest logic,是否进行退锁的标志次数
+KC Screw 2_Full FinalTorque,KC Screw 2_Full FinalTorque,2# Full lock最终扭力
+KC Screw 2_Full FinalAngle,KC Screw 2_Full FinalAngle,2# Full lock最终角度
+KC Screw 2_Full PrevailingTorqueMax,KC Screw 2_Full PrevailingTorqueMax,坐标系630度前最大扭矩对应的扭力
+KC Screw 2_Full PrevailingTorqueMaxAngle,KC Screw 2_Full PrevailingTorqueMaxAngle,坐标系630度前最大扭矩对应的扭力
+KC Screw 2_Full RealAngle,KC Screw 2_Full RealAngle,坐标系上值+反转的值
+KC Screw 2_Full TorqueAt630,KC Screw 2_Full TorqueAt630,坐标系上630°时的扭力
+KC Screw 2_Full Prev torque retest logic,KC Screw 2_Full Prev torque retest logic,是否进行退锁的标志次数
+KC Screw 1_Full FinalTorque,KC Screw 1_Full FinalTorque,1# Full lock最终扭力
+KC Screw 1_Full FinalAngle,KC Screw 1_Full FinalAngle,1# Full lock最终角度
+KC Screw 1_Full PrevailingTorqueMax,KC Screw 1_Full PrevailingTorqueMax,坐标系630度前最大扭矩对应的扭力
+KC Screw 1_Full PrevailingTorqueMaxAngle,KC Screw 1_Full PrevailingTorqueMaxAngle,坐标系630度前最大扭矩对应的角度
+KC Screw 1_Full RealAngle,KC Screw 1_Full RealAngle,坐标系上值+反转的值
+KC Screw 1_Full TorqueAt630,KC Screw 1_Full TorqueAt630,坐标系上630°时的扭力
+KC Screw 1_Full Prev torque retest logic,KC Screw 1_Full Prev torque retest logic,是否进行退锁的标志次数
+SPK Screw 4_Full FinalTorque,SPK Screw 4_Full FinalTorque,4# full Lock最终扭力
+SPK Screw 4_Full FinalAngle,SPK Screw 4_Full FinalAngle,4# full Lock最终角度
+SPK Screw 4_FULL TotalAngle,SPK Screw 4_FULL TotalAngle,4# half+full Lock总角度
+SPK Screw 4_FULL Prev torque retest logic,SPK Screw 4_FULL Prev torque retest logic,是否进行退锁的标志次数
+SPK_Pick_X,SPK_Pick_X,SPK定位取料视觉X坐标（Holder中）
+SPK_Pick_Y,SPK_Pick_Y,SPK定位取料视觉Y坐标（Holder中）
+SPK_Pick_R,SPK_Pick_R,SPK定位取料视觉R坐标（Holder中）
+SPK_Down_X,SPK_Down_X,SPK定位组装视觉X坐标（取料后组装前）
+SPK_Down_Y,SPK_Down_Y,SPK定位组装视觉Y坐标（取料后组装前）
+SPK_Down_R,SPK_Down_R,SPK定位组装视觉R坐标（取料后组装前）
+SPK_Length,SPK_Length,SPK视觉拍照长度（取料后组装前）
+SPK_Width,SPK_Width,SPK视觉拍照宽度（取料后组装前）
+HSG_Up_X,HSG_Up_X,HSG定位组装视觉X坐标（组装前）
+HSG_Up_Y,HSG_Up_Y,HSG定位组装视觉Y坐标（组装前）
+HSG_Up_R,HSG_Up_R,HSG定位组装视觉R坐标（组装前）
+HSGPoc_Length,HSGPoc_Length,HSG视觉拍照长度（取料后组装前）
+HSGPoc_Width,HSGPoc_Width,HSG视觉拍照宽度（取料后组装前）
+CHG_Pick_X,CHG_Pick_X,CHG定位取料视觉X坐标（Holder中）
+CHG_Pick_Y,CHG_Pick_Y,CHG定位取料视觉Y坐标（Holder中）
+CHG_Pick_R,CHG_Pick_R,CHG定位取料视觉R坐标（Holder中）
+CHG_Up_X,CHG_Up_X,CHG定位组装视觉X坐标（取料后组装前）
+CHG_Up_Y,CHG_Up_Y,CHG定位组装视觉Y坐标（取料后组装前）
+CHG_Up_R,CHG_Up_R,CHG定位组装视觉R坐标（取料后组装前）
+Assy_CHGPoc_Diameter,CHG_Down_X,CHG定位组装视觉X坐标（取料后组装前）
+CHG_Down_X,CHG_Down_Y,CHG定位组装视觉Y坐标（取料后组装前）
+CHG_Down_Y,CHG_Down_R,CHG定位组装视觉R坐标（取料后组装前）
+CHG_Down_R,PickSpkPress,取SPK压力
+Rotate_CHGPoc_Diameter,PickChgPress,取CHG压力
+PickSpkPress,,
+PickChgPress,,
+Cap_Diameter,,
+Bracket_X,Bracket_X,Bracket定位取料视觉X坐标（Holder中）
+Bracket_Y,Bracket_Y,Bracket定位取料视觉Y坐标（Holder中）
+Bracket_R,Bracket_R,Bracket定位取料视觉R坐标（Holder中）
+CHG_Angle,,
+Bracket_Angle,,
+Recheck_Bracket_Angle,,
+1_Screw 0D nylock area,1_Screw 0D nylock area,1#螺丝0°角奈落胶面积
+1_Screw 90D nylock area,1_Screw 90D nylock area,1#螺丝90°角奈落胶面积
+2_Screw 0D nylock area,2_Screw 0D nylock area,2#螺丝0°角奈落胶面积
+2_Screw 90D nylock area,2_Screw 90D nylock area,2#螺丝90°角奈落胶面积
+4_Screw 0D nylock area,4_Screw 0D nylock area,4#螺丝0°角奈落胶面积
+4_Screw 90D nylock area,4_Screw 90D nylock area,4#螺丝90°角奈落胶面积
+spk_Screw_Ipn,,
+crowling_Screw_Ipn,,
+configName,,
+LastResult,,
+ImagePath,,
+SPKCirclePointLimitUp,SPKCirclePointLimitUp,SPK圆心距上限
+SPKCirclePointLimitDown,SPKCirclePointLimitDown,SPK圆心距下限
+SPKPosX1,SPKPosX1,取SPK坐标X上限
+SPKPosX2,SPKPosX2,取SPK坐标X下限
+SPKPosY1,SPKPosY1,取SPK坐标Y上限
+SPKPosY2,SPKPosY2,取SPK坐标Y下限
+SPKAngle1,SPKAngle1,取SPK坐标R上限
+SPKAngle2,SPKAngle2,取SPK坐标R下限
+CHGPosX1,CHGPosX1,取CHG坐标X上限
+CHGPosX2,CHGPosX2,取CHG坐标X下限
+CHGPosY1,CHGPosY1,取CHG坐标Y上限
+CHGPosY2,CHGPosY2,取CHG坐标Y下限
+CHGAngle1,CHGAngle1,取CHG坐标R上限
+CHGAngle2,CHGAngle2,取CHG坐标R下限
+SPKCirclePointDis1,,
+SPKCirclePointDis2,,
+SPK_CHG_Angle1,,
+SPK_CHG_Angle2,,
+Have_Ornot_O-ring1,Have_Ornot_O-ring1,CHG Tape灰度方差上限
+Have_Ornot_O-ring2,Have_Ornot_O-ring2,CHG Tape灰度方差下限
+SPKCirToLineUp1,SPKCirToLineUp1,SPK圆心到上边距离上限
+SPKCirToLineUp2,SPKCirToLineUp2,SPK圆心到上边距离下限
+SPKCirToLineDown1,SPKCirToLineDown1,SPK圆心到下边距离上限
+SPKCirToLineDown2,SPKCirToLineDown2,SPK圆心到下边距离下限
+Up_Dn_Line_Angle1,Up_Dn_Line_Angle1,SPK上下两边角度上限
+Up_Dn_Line_Angle2,Up_Dn_Line_Angle2,SPK上下两边角度下限
+Span_CHGAngle1,Span_CHGAngle1,CHG角度上限
+Span_CHGAngle2,Span_CHGAngle2,CHG角度下限
+Span_CHG_Diameter1,Span_CHG_Diameter1,CHG直径上限
+Span_CHG_Diameter2,Span_CHG_Diameter2,CHG直径下限
+Span_CHG_Pos1,Span_CHG_Pos1,CHG到SPK距离上限
+Span_CHG_Pos2,Span_CHG_Pos2,CHG到SPK距离下限
+Span_CHG_Del_X1,Span_CHG_Del_X1,CHG位置X上限
+Span_CHG_Del_X2,Span_CHG_Del_X2,CHG位置X下限
+Span_CHG_Del_Y1,Span_CHG_Del_Y1,CHG位置Y上限
+Span_CHG_Del_Y2,Span_CHG_Del_Y2,CHG位置Y下限
+Cap_Variance,Cap_Variance,Cap灰度方差
+SPK_DnCCD_SPKPosX1,SPK_DnCCD_SPKPosX1,SPK坐标X上限
+SPK_DnCCD_SPKPosX2,SPK_DnCCD_SPKPosX2,SPK坐标X下限
+SPK_DnCCD_SPKPosY1,SPK_DnCCD_SPKPosY1,SPK坐标Y上限
+SPK_DnCCD_SPKPosY2,SPK_DnCCD_SPKPosY2,SPK坐标Y下限
+SPK_DnCCD_SPKAngle1,SPK_DnCCD_SPKAngle1,SPK坐标R上限
+SPK_DnCCD_SPKAngle2,SPK_DnCCD_SPKAngle2,SPK坐标R下限
+SPK_DnCCD_SPKCirPoint1,SPK_DnCCD_SPKCirPoint1,SPK圆心距上限
+SPK_DnCCD_SPKCirPoint2,SPK_DnCCD_SPKCirPoint2,SPK圆心距下限
+SPK_DnCCD_LeftCirR1,SPK_DnCCD_LeftCirR1,SPK左圆半径上限
+SPK_DnCCD_LeftCirR2,SPK_DnCCD_LeftCirR2,SPK左圆半径下限
+SPK_DnCCD_RightCirR1,SPK_DnCCD_RightCirR1,SPK右圆半径上限
+SPK_DnCCD_RightCirR2,SPK_DnCCD_RightCirR2,SPK右圆半径下限
+SPK_DnCCD_SPKLength1,SPK_DnCCD_SPKLength1,SPK长度上限
+SPK_DnCCD_SPKLength2,SPK_DnCCD_SPKLength2,SPK长度下限
+SPK_DnCCD_SPKWidth1,SPK_DnCCD_SPKWidth1,SPK宽度上限
+SPK_DnCCD_SPKWidth2,SPK_DnCCD_SPKWidth2,SPK宽度下限
+AssSPK_HSGPoc_X1,AssSPK_HSGPoc_X1,SPK槽坐标X上限
+AssSPK_HSGPoc_X2,AssSPK_HSGPoc_X2,SPK槽坐标X下限
+AssSPK_HSGPoc_Y1,AssSPK_HSGPoc_Y1,SPK槽坐标Y上限
+AssSPK_HSGPoc_Y2,AssSPK_HSGPoc_Y2,SPK槽坐标Y下限
+AssSPK_HSGPoc_Angle1,AssSPK_HSGPoc_Angle1,SPK槽坐标R上限
+AssSPK_HSGPoc_Angle2,AssSPK_HSGPoc_Angle2,SPK槽坐标R下限
+AssSPK_HSGPoc_CirDis1,AssSPK_HSGPoc_CirDis1,SPK槽圆心距上限
+AssSPK_HSGPoc_CirDis2,AssSPK_HSGPoc_CirDis2,SPK槽圆心距下限
+AssSPK_HSGPoc_LeftCirR1,AssSPK_HSGPoc_LeftCirR1,SPK槽左圆半径上限
+AssSPK_HSGPoc_LeftCirR2,AssSPK_HSGPoc_LeftCirR2,SPK槽左圆半径下限
+AssSPK_HSGPoc_RightCirR1,AssSPK_HSGPoc_RightCirR1,SPK槽右圆半径上限
+AssSPK_HSGPoc_RightCirR2,AssSPK_HSGPoc_RightCirR2,SPK槽右圆半径下限
+AssSPK_HSGPoc_Length1,AssSPK_HSGPoc_Length1,SPK槽长度上限
+AssSPK_HSGPoc_Length2,AssSPK_HSGPoc_Length2,SPK槽长度下限
+AssSPK_HSGPoc_Width1,AssSPK_HSGPoc_Width1,SPK槽宽度上限
+AssSPK_HSGPoc_Width2,AssSPK_HSGPoc_Width2,SPK槽宽度下限
+AssCHG_HSGPoint_Up1,AssCHG_HSGPoint_Up1,SPK槽圆心到上边距离上限
+AssCHG_HSGPoint_Up2,AssCHG_HSGPoint_Up2,SPK槽圆心到上边距离下限
+AssCHG_HSGPoint_Down1,AssCHG_HSGPoint_Down1,SPK槽圆心到下边距离上限
+AssCHG_HSGPoint_Down2,AssCHG_HSGPoint_Down2,SPK槽圆心到下边距离下限
+AssCHG_HSG_Angle1,AssCHG_HSG_Angle1,SPK槽上下两边角度上限
+AssCHG_HSG_Angle2,AssCHG_HSG_Angle2,SPK槽上下两边角度下限
+AssCHG_CHGPos_X1,AssCHG_CHGPos_X1,CHG槽坐标X上限
+AssCHG_CHGPos_X2,AssCHG_CHGPos_X2,CHG槽坐标X下限
+AssCHG_CHGPos_Y1,AssCHG_CHGPos_Y1,CHG槽坐标Y上限
+AssCHG_CHGPos_Y2,AssCHG_CHGPos_Y2,CHG槽坐标Y下限
+AssCHG_CHGAngle1,AssCHG_CHGAngle1,CHG槽坐标R上限
+AssCHG_CHGAngle2,AssCHG_CHGAngle2,CHG槽坐标R下限
+AssCHG_CHGPoc_Diameter1,AssCHG_CHGPoc_Diameter1,CHG槽直径上限
+AssCHG_CHGPoc_Diameter2,AssCHG_CHGPoc_Diameter2,CHG槽直径上限
+Pick_Up_X_Max,Pick_Up_X_Max,取Bracket坐标X上限
+Pick_Up_X_Min,Pick_Up_X_Min,取Bracket坐标X下限
+Pick_Up_Y_Max,Pick_Up_Y_Max,取Bracket坐标Y上限
+Pick_Up_Y_Min,Pick_Up_Y_Min,取Bracket坐标Y下限
+Pick_Up_Angle_Max,Pick_Up_Angle_Max,取Bracket坐标R上限
+Pick_Up_Angle_Min,Pick_Up_Angle_Min,取Bracket坐标R下限
+Install_Down_X_Max,Install_Down_X_Max,Bracket下相机坐标X上限
+Install_Down_X_Min,Install_Down_X_Min,Bracket下相机坐标X下限
+Install_Down_Y_Max,Install_Down_Y_Max,Bracket下相机坐标Y上限
+Install_Down_Y_Min,Install_Down_Y_Min,Bracket下相机坐标Y下限
+Install_Down_Angle_Max,Install_Down_Angle_Max,Bracket下相机坐标R上限
+Install_Down_Angle_Min,Install_Down_Angle_Min,Bracket下相机坐标R下限
+Install_Up_X_Max,Install_Up_X_Max,Bracket上相机坐标X上限
+Install_Up_X_Min,Install_Up_X_Min,Bracket上相机坐标X下限
+Install_Up_Y_Max,Install_Up_Y_Max,Bracket上相机坐标Y上限
+Install_Up_Y_Min,Install_Up_Y_Min,Bracket上相机坐标Y下限
+Install_Up_Angle_Max,Install_Up_Angle_Max,Bracket上相机坐标R上限
+Install_Up_Angle_Min,Install_Up_Angle_Min,Bracket上相机坐标R下限
+Circle1Radius_Max,Circle1Radius_Max,组装螺丝孔1半径上限
+Circle1Radius_Min,Circle1Radius_Min,组装螺丝孔1半径下限
+Circle2Radius_Max,Circle2Radius_Max,组装螺丝孔2半径上限
+Circle2Radius_Min,Circle2Radius_Min,组装螺丝孔2半径下限
+CircleDis_Max,CircleDis_Max,组装螺丝孔距离上限
+CircleDis_Min,CircleDis_Min,组装螺丝孔距离下限
+CircleDis12_Max,CircleDis12_Max,"打螺丝螺丝孔1,2距离上限"
+CircleDis12_Min,CircleDis12_Min,"打螺丝螺丝孔1,2距离下限"
+CircleDis23_Max,CircleDis23_Max,"打螺丝螺丝孔2,3距离上限"
+CircleDis23_Min,CircleDis23_Min,"打螺丝螺丝孔2,3距离下限"
+CircleDis34_Max,CircleDis34_Max,"打螺丝螺丝孔3,4距离上限"
+CircleDis34_Min,CircleDis34_Min,"打螺丝螺丝孔3,4距离下限"
+CircleDis41_Max,CircleDis41_Max,"打螺丝螺丝孔4,1距离上限"
+CircleDis41_Min,CircleDis41_Min,"打螺丝螺丝孔4,1距离下限"
+CircleAngle12_Max,CircleAngle12_Max,"螺孔1,2角度上限"
+CircleAngle12_Min,CircleAngle12_Min,"螺孔1,2角度下限"
+CircleAngle23_Max,CircleAngle23_Max,"螺孔2,3角度上限"
+CircleAngle23_Min,CircleAngle23_Min,"螺孔2,3角度下限"
+CircleAngle34_Max,CircleAngle34_Max,"螺孔3,4角度上限"
+CircleAngle34_Min,CircleAngle34_Min,"螺孔3,4角度下限"
+CircleAngle41_Max,CircleAngle41_Max,"螺孔4,1角度上限"
+CircleAngle41_Min,CircleAngle41_Min,"螺孔4,1角度下限"
+CircleRadius1_Max,CircleRadius1_Max,螺丝孔1半径上限
+CircleRadius1_Min,CircleRadius1_Min,螺丝孔1半径下限
+CircleRadius2_Max,CircleRadius2_Max,螺丝孔2半径上限
+CircleRadius2_Min,CircleRadius2_Min,螺丝孔2半径下限
+CircleRadius3_Max,CircleRadius3_Max,螺丝孔3半径上限
+CircleRadius3_Min,CircleRadius3_Min,螺丝孔3半径下限
+CircleRadius4_Max,CircleRadius4_Max,螺丝孔4半径上限
+CircleRadius4_Min,CircleRadius4_Min,螺丝孔4半径下限
+4_Screw_AngleMax,test_fxt_swver,insight本身上传数据
+2_Screw_AngleMax,BALI_VERSION,insight本身上传数据
+1_Screw_AngleMax,BALI_MAC_OS_VERSION,insight本身上传数据
+,BALI_CLAMAV_VERSION,insight本身上传数据
+,BALI_VIRUS_DEF_VERSION,insight本身上传数据
