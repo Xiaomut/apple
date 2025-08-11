@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>螺丝状态分析与图像配准系统</title>
+    <!-- 使用CDN引入Bootstrap和Font Awesome -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #0d6efd;
+            --success-color: #198754;
+            --warning-color: #ffc107;
+            --danger-color: #dc3545;
+            --info-color: #0dcaf0;
+        }
+        
+        body {
+            font-family: 'Microsoft YaHei', sans-serif;
+            background-color: #f8f9fa;
+            padding: 20px;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .page-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #212529;
+        }
+        
+        .section {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            border-radius: 8px;
+            transition: box-shadow 0.3s ease;
+        }
+        
+        .section:hover {
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        
+        .section-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: #212529;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 0.5rem;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background-color: var(--primary-color);
+            border-radius: 3px;
+        }
+        
+        .upload-card {
+            background-color: #fff;
+            border: 1px dashed #dee2e6;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .upload-card:hover {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 8px rgba(0,0,0,0.1);
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            transition: all 0.2s ease;
+        }
+        
+        .btn-primary:hover {
+            background-color: #0a58ca;
+            border-color: #0a58ca;
+        }
+        
+        .btn-success {
+            background-color: var(--success-color);
+            border-color: var(--success-color);
+            transition: all 0.2s ease;
+        }
+        
+        .btn-success:hover {
+            background-color: #146c43;
+            border-color: #146c43;
+        }
+        
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+            overflow: hidden;
+        }
+        
+        .image-item {
+            position: relative;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+        
+        .image-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+        
+        .image-item:hover img {
+            transform: scale(1.03);
+        }
+        
+        .image-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 0.5rem;
+            background: linear-gradient(transparent, rgba(0,0,0,0.7));
+            color: white;
+            border-bottom-left-radius: 6px;
+            border-bottom-right-radius: 6px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .image-item:hover .image-overlay {
+            opacity: 1;
+        }
+        
+        .status-indicator {
+            display: inline-block;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-right: 0.5rem;
+        }
+        
+        .status-ok {
+            background-color: rgba(25, 135, 84, 0.1);
+            color: var(--success-color);
+        }
+        
+        .status-warning {
+            background-color: rgba(255, 193, 7, 0.1);
+            color: var(--warning-color);
+        }
+        
+        .status-danger {
+            background-color: rgba(220, 53, 69, 0.1);
+            color: var(--danger-color);
+        }
+        
+        .loading-spinner {
+            display: none;
+            width: 2rem;
+            height: 2rem;
+            margin: 0 auto;
+            border: 3px solid rgba(0,0,0,0.1);
+            border-top: 3px solid var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .drop-zone {
+            border: 2px dashed #dee2e6;
+            border-radius: 8px;
+            padding: 2rem;
+            text-align: center;
+            background-color: #f8f9fa;
+            color: #6c757d;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .drop-zone.dragover {
+            border-color: var(--primary-color);
+            background-color: #e9ecef;
+            color: var(--primary-color);
+        }
+        
+        .alert-dismissible {
+            position: relative;
+        }
+        
+        .alert-dismissible .btn-close {
+            position: absolute;
+            right: 1rem;
+            top: 0.5rem;
+            padding: 0.5rem;
+            background: transparent;
+            border: none;
+            color: #000;
+            opacity: 0.7;
+        }
+        
+        /* 自定义文件上传样式 */
+        .custom-file-input {
+            display: none;
+        }
+        
+        .custom-file-label {
+            display: block;
+            width: 100%;
+            padding: 0.5rem 1rem;
+            border: 1px solid #ced4da;
+            border-radius: 0.25rem;
+            background-color: #fff;
+            color: #495057;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .custom-file-label:hover {
+            background-color: #f8f9fa;
+        }
+        
+        .form-check-input:checked ~ .form-check-label {
+            color: var(--primary-color);
+        }
+        
+        .help-text {
+            font-size: 0.875rem;
+            color: #6c757d;
+            margin-top: 0.25rem;
+        }
+        
+        /* 响应式调整 */
+        @media (max-width: 991.98px) {
+            .container {
+                padding: 1.5rem;
+            }
+            
+            .page-title {
+                font-size: 1.5rem;
+                margin-bottom: 1.5rem;
+            }
+            
+            .section-title {
+                font-size: 1.1rem;
+            }
+        }
+        
+        @media (max-width: 767.98px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            .image-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-title::after {
+                width: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="page-title">螺丝状态分析与图像配准系统</h1>
+        
+        <div class="row">
+            <!-- 左侧上传区域 -->
+            <div class="col-md-4 mb-4 mb-md-0">
+                <div class="section">
+                    <h2 class="section-title">数据上传</h2>
+                    
+                    <form id="uploadForm" class="drop-zone" ondrop="handleDrop(event)" ondragover="handleDragOver(event)" ondragleave="handleDragLeave(event)">
+                        <input type="file" id="trainFile" name="trainFile" class="custom-file-input" accept=".txt,.csv" hidden />
+                        <label for="trainFile" class="custom-file-label d-block">
+                            选择训练数据文件
+                            <small class="text-muted help-text">用于训练模型的历史数据</small>
+                        </label>
+                        
+                        <div class="mt-3">
+                            <input type="file" id="testFile" name="testFile" class="custom-file-input" accept=".txt,.csv" hidden />
+                            <label for="testFile" class="custom-file-label d-block">
+                                选择测试数据文件
+                                <small class="text-muted help-text">需要分析的单个螺丝数据</small>
+                            </label>
+                        </div>
+                        
+                        <button type="button" class="btn btn-primary w-100 mt-3" onclick="document.getElementById('uploadForm').submit()">
+                            上传螺丝数据文件
+                        </button>
+                        
+                        <div class="mt-4">
+                            <input type="file" id="imageFiles" name="imageFiles" class="custom-file-input" accept="image/*" multiple hidden />
+                            <label for="imageFiles" class="custom-file-label d-block">
+                                选择配准图像
+                                <small class="text-muted help-text">需上传两张图像进行配准</small>
+                            </label>
+                            
+                            <button type="button" class="btn btn-primary w-100 mt-3" onclick="document.getElementById('imageFiles').click()">
+                                上传图像
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                
+                <div class="section">
+                    <h2 class="section-title">计算控制</h2>
+                    
+                    <button id="startCalculation" type="button" class="btn btn-success w-100 mt-3">
+                        开始计算
+                    </button>
+                    
+                    <!-- 消息提示 -->
+                    <div id="messages" class="mt-3"></div>
+                </div>
+            </div>
+            
+            <!-- 右侧显示区域 -->
+            <div class="col-md-8">
+                <!-- 图像显示区域 -->
+                <div class="section">
+                    <h2 class="section-title">图像显示区域</h2>
+                    
+                    <div id="imageDisplay" class="d-flex flex-column align-items-center justify-content-center h-100">
+                        <div class="loading-spinner" id="loadingSpinner"></div>
+                        <p>请上传两张图像进行配准</p>
+                    </div>
+                </div>
+                
+                <!-- 计算结果输出区域 -->
+                <div class="section">
+                    <h2 class="section-title">计算结果输出区域</h2>
+                    
+                    <div id="resultDisplay" class="mt-3"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 结果模态框 -->
+    <div class="modal fade" id="resultModal" tabindex="-1" aria-labelledby="resultModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="resultModalLabel">详细分析结果</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="modalResultBody">
+                    <!-- 动态加载结果内容 -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">关闭</button>
+                    <button type="button" class="btn btn-primary" onclick="downloadResults()">下载报告</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 引入JavaScript -->
+    <script>
+        // DOM加载完成后执行
+        document.addEventListener('DOMContentLoaded', function() {
+            // 初始化拖放功能
+            const dropZone = document.querySelector('.drop-zone');
+            const trainFileInput = document.getElementById('trainFile');
+            const testFileInput = document.getElementById('testFile');
+            const imageFilesInput = document.getElementById('imageFiles');
+            const startCalculationBtn = document.getElementById('startCalculation');
+            const messagesDiv = document.getElementById('messages');
+            const loadingSpinner = document.getElementById('loadingSpinner');
+            const imageDisplayDiv = document.getElementById('imageDisplay');
+            
+            // 拖放事件处理
+            function handleDragOver(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                dropZone.classList.add('dragover');
+            }
+            
+            function handleDragLeave(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                dropZone.classList.remove('dragover');
+            }
+            
+            function handleDrop(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                dropZone.classList.remove('dragover');
+                
+                const files = e.dataTransfer.files;
+                if (files.length > 0) {
+                    handleFiles(files);
+                }
+            }
+            
+            // 文件选择处理
+            function handleFiles(files) {
+                const fileTypes = ['image/jpeg', 'image/png', 'image/gif', '.txt', '.csv'];
+                let validFiles = [];
+                
+                Array.from(files).forEach(file => {
+                    if (fileTypes.includes(file.type) || fileTypes.includes(file.name.split('.').pop())) {
+                        validFiles.push(file);
+                    } else {
+                        showMessage(`不支持的文件类型: ${file.name}`, 'danger');
+                    }
+                });
+                
+                if (validFiles.length > 0) {
+                    uploadFiles(validFiles);
+                }
+            }
+            
+            // 显示消息
+            function showMessage(message, type = 'info') {
+                const messageDiv = document.createElement('div');
+                const alertClasses = `alert alert-${type} alert-dismissible fade show`;
+                
+                messageDiv.className = alertClasses;
+                messageDiv.innerHTML = `
+                    <p>${message}</p>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                `;
+                
+                messagesDiv.innerHTML = '';
+                messagesDiv.appendChild(messageDiv);
+                
+                // 自动消失
+                setTimeout(() => {
+                    messageDiv.classList.add('fade');
+                    setTimeout(() => messageDiv.remove(), 500);
+                }, 3000);
+            }
+            
+            // 文件上传
+            function uploadFiles(files) {
+                // 创建FormData对象
+                const formData = new FormData();
+                
+                // 添加文件到FormData
+                Array.from(files).forEach((file, index) => {
+                    formData.append(`file[${index}]`, file);
+                });
+                
+                // 设置加载状态
+                loadingSpinner.style.display = 'block';
+                
+                // 模拟上传过程
+                simulateUpload(formData)
+                    .then(response => {
+                        loadingSpinner.style.display = 'none';
+                        
+                        if (response.success) {
+                            showMessage(response.message || '文件上传成功', 'success');
+                            
+                            // 根据上传类型更新UI
+                            if (Array.from(files).some(file => ['.txt', '.csv'].includes(file.name.split('.').pop()))) {
+                                // 数据文件上传后自动开始计算
+                                startCalculation();
+                            } else {
+                                // 图像文件上传后更新预览
+                                updateImageDisplay(response.imagePaths);
+                            }
+                        } else {
+                            showMessage(response.message || '文件上传失败', 'danger');
+                        }
+                    })
+                    .catch(error => {
+                        loadingSpinner.style.display = 'none';
+                        showMessage(`上传过程中发生错误: ${error.message}`, 'danger');
+                        console.error('Upload error:', error);
+                    });
+            }
+            
+            // 模拟上传过程
+            function simulateUpload(formData) {
+                return new Promise((resolve, reject) => {
+                    setTimeout(() => {
+                        // 在实际应用中，这里应该发送AJAX请求
+                        // 这里仅作为模拟
+                        resolve({
+                            success: true,
+                            message: '文件上传成功',
+                            imagePaths: ['placeholder1.jpg', 'placeholder2.jpg']
+                        });
+                    }, 1500);
+                });
+            }
+            
+            // 更新图像显示
+            function updateImageDisplay(imagePaths) {
+                if (!imagePaths || imagePaths.length === 0) {
+                    imageDisplayDiv.innerHTML = '<p class="text-muted text-center">未选择图像或图像处理中...</p>';
+                    return;
+                }
+                
+                // 清除加载状态
+                loadingSpinner.style.display = 'none';
+                
+                // 创建图像网格
+                let imageHTML = '<div class="image-grid">';
+                
+                imagePaths.forEach((path, index) => {
+                    imageHTML += `
+                        <div class="image-item">
+                            <img src="${path}" alt="上传图像 ${index + 1}">
+                            <div class="image-overlay">${index === 0 ? '原始图像' : '分析结果'}</div>
+                        </div>
+                    `;
+                });
+                
+                imageHTML += '</div>';
+                
+                imageDisplayDiv.innerHTML = imageHTML;
+            }
+            
+            // 开始计算
+            function startCalculation() {
+                // 验证必要条件
+                if (!validateRequirements()) {
+                    showMessage('请先上传训练数据、测试数据和配准图像', 'warning');
+                    return;
+                }
+                
+                // 设置加载状态
+                loadingSpinner.style.display = 'block';
+                startCalculationBtn.disabled = true;
+                startCalculationBtn.textContent = '计算中...';
+                
+                // 发送计算请求
+                setTimeout(() => {
+                    loadingSpinner.style.display = 'none';
+                    startCalculationBtn.disabled = false;
+                    startCalculationBtn.textContent = '开始计算';
+                    
+                    // 模拟计算结果
+                    const resultData = generateResultData();
+                    
+                    // 更新UI
+                    updateResultDisplay(resultData);
+                    
+                    // 如果是分析单个螺丝，则直接显示结果
+                    if (resultData.isSingleScrewAnalysis) {
+                        showResultModal(resultData);
+                    }
+                }, 2000);
+            }
+            
+            // 验证必要条件
+            function validateRequirements() {
+                // 在实际应用中，这里应该检查是否有必要的文件已上传
+                return true; // 模拟验证通过
+            }
+            
+            // 生成模拟结果数据
+            function generateResultData() {
+                return {
+                    isSingleScrewAnalysis: true,
+                    analysisResults: [
+                        {
+                            loc: '顶部',
+                            status: '正常',
+                            anomalyScore: 0.12,
+                            suggestReplace: false
+                        },
+                        {
+                            loc: '中部',
+                            status: '异常',
+                            anomalyScore: 0.78,
+                            suggestReplace: true
+                        },
+                        {
+                            loc: '底部',
+                            status: '正常',
+                            anomalyScore: 0.08,
+                            suggestReplace: false
+                        }
+                    ],
+                    recommendation: "建议对中部螺丝进行更换，其他螺丝状态良好"
+                };
+            }
+            
+            // 更新结果展示
+            function updateResultDisplay(resultData) {
+                if (!resultData) {
+                    document.getElementById('resultDisplay').innerHTML = 
+                        '<div class="text-muted d-flex justify-content-center align-items-center h-100">' +
+                        '计算结果将在此处显示' +
+                        '</div>';
+                    return;
+                }
+                
+                // 构建结果HTML
+                let resultHTML = `
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title">整体分析结论</h5>
+                            <p class="card-text">${resultData.recommendation}</p>
+                        </div>
+                    </div>
+                `;
+                
+                // 构建详细结果表格
+                resultHTML += `
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>位置</th>
+                                    <th>状态</th>
+                                    <th>异常分数</th>
+                                    <th>建议</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                `;
+                
+                resultData.analysisResults.forEach(result => {
+                    resultHTML += `
+                        <tr>
+                            <td>${result.loc}</td>
+                            <td>
+                                <span class="status-indicator status-${result.status.toLowerCase()}"></span>
+                                <strong>${result.status}</strong>
+                            </td>
+                            <td>${result.anomalyScore.toFixed(2)}</td>
+                            <td>${result.suggestReplace ? '<span class="badge bg-danger">建议更换</span>' : '正常使用'}</td>
+                        </tr>
+                    `;
+                });
+                
+                resultHTML += '</tbody></table>';
+                
+                document.getElementById('resultDisplay').innerHTML = resultHTML;
+            }
+            
+            // 显示结果模态框
+            function showResultModal(resultData) {
+                const modalBody = document.getElementById('modalResultBody');
+                const modalTitle = document.getElementById('resultModalLabel');
+                
+                // 清空现有内容
+                modalBody.innerHTML = '';
+                
+                // 构建详细结果视图
+                let detailHTML = `
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title">螺丝分析报告</h5>
+                            <p>基于上传的训练数据和测试数据，系统对螺丝状态进行了全面分析。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">详细分析结果</h5>
+                            
+                            <div class="table-responsive">
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>位置</th>
+                                            <th>检测状态</th>
+                                            <th>异常分数</th>
+                                            <th>操作建议</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                    `;
+                
+                resultData.analysisResults.forEach(result => {
+                    detailHTML += `
+                        <tr>
+                            <td>${result.loc}</td>
+                            <td>
+                                <div class="d-flex align-items-center">
+                                    <span class="status-indicator status-${result.status.toLowerCase()} me-2"></span>
+                                    <span>${result.status}</span>
+                                </div>
+                            </td>
+                            <td>${result.anomalyScore.toFixed(2)}</td>
+                            <td>${result.suggestReplace ? '<span class="badge bg-danger">建议更换</span>' : '继续使用'}</td>
+                        </tr>
+                    `;
+                });
+                
+                detailHTML += '</tbody></table>';
+                
+                modalBody.innerHTML = detailHTML;
+                
+                // 设置模态框标题
+                modalTitle.textContent = '螺丝分析详细结果';
+                
+                // 显示模态框
+                const resultModal = new bootstrap.Modal(document.getElementById('resultModal'));
+                resultModal.show();
+            }
+            
+            // 下载结果报告
+            function downloadResults() {
+                // 在实际应用中，这里应该生成并下载PDF或Excel报告
+                showMessage('正在准备报告下载...', 'info');
+                
+                setTimeout(() => {
+                    showMessage('报告下载功能尚未实现，敬请期待！', 'info');
+                }, 1500);
+                
+                // 实际实现代码示例:
+                /*
+                const reportData = JSON.stringify(generateResultData());
+                const blob = new Blob([reportData], { type: 'application/json' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'screw_analysis_report.json';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+                */
+            }
+            
+            // 上传表单提交事件
+            document.getElementById('uploadForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // 获取选中的文件
+                const trainFile = document.getElementById('trainFile').files[0];
+                const testFile = document.getElementById('testFile').files[0];
+                
+                if (!trainFile || !testFile) {
+                    showMessage('请同时上传训练数据和测试数据文件', 'warning');
+                    return;
+                }
+                
+                // 创建FormData并添加文件
+                const formData = new FormData(this);
+                
+                // 设置加载状态
+                loadingSpinner.style.display = 'block';
+                
+                // 模拟文件上传
+                simulateUpload(formData)
+                    .then(response => {
+                        loadingSpinner.style.display = 'none';
+                        
+                        if (response.success) {
+                            showMessage('数据文件上传成功', 'success');
+                            
+                            // 上传成功后自动开始计算
+                            startCalculation();
+                        } else {
+                            showMessage(response.message || '文件上传失败', 'danger');
+                        }
+                    })
+                    .catch(error => {
+                        loadingSpinner.style.display = 'none';
+                        showMessage(`上传过程中发生错误: ${error.message}`, 'danger');
+                        console.error('Upload error:', error);
+                    });
+            });
+            
+            // 开始计算按钮点击事件
+            startCalculationBtn.addEventListener('click', startCalculation);
+            
+            // 消息自动滚动
+            function scrollToBottom(element) {
+                element.scrollTop = element.scrollHeight;
+            }
+            
+            // 监听新消息
+            messagesDiv.addEventListener('DOMSubtreeModified', function() {
+                scrollToBottom(messagesDiv);
+            });
+            
+            // 监听结果显示更新
+            document.getElementById('resultDisplay').addEventListener('DOMSubtreeModified', function() {
+                scrollToBottom(document.getElementById('resultDisplay'));
+            });
+        });
+    </script>
+    
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
