@@ -71,11 +71,12 @@ class ScrewdriverReplacementAnalyzer:
         self.feature_weights = {
             'torque_max': 1.0,          # 最高权重：最大扭矩直接反映拧紧力度
             'torque_final': 1.2,          # 
-            # 'clamp_angle': 0.9,         # 夹紧扭矩不足是主要失效模式
+            # 'clamp_angle': 0.7,         # 夹紧扭矩不足是主要失效模式
+            # 'clamp_torque_percentage': 0.7,         # 
             'angle_max': 0.8,           # 角度超差影响装配精度
-            # 'angle_sit': 0.8,           # 
-            # 'angular_work_total': 0.9,  # 能量积分反映整体拧紧质量
-            # 'gradient_stdev': 0.7,        # 扭矩变化率异常预示摩擦增大
+            # 'angle_sit': 0.6,           # 
+            'angular_work_total': 0.9,  # 能量积分反映整体拧紧质量
+            'gradient_stdev': 0.9,        # 扭矩变化率异常预示摩擦增大
             'FFT_Max': 0.9               # 高频振动异常
         }
 
@@ -115,7 +116,9 @@ class ScrewdriverReplacementAnalyzer:
         # 滑动 z-score（时间序列感知标准化）
         for f in existing_features:
             roll = pos_df[f].rolling(window=self.window_size, min_periods=1)
-            pos_df[f'{f}_zscore'] = (pos_df[f] - roll.mean()) / roll.std().replace(0, 1e-8)
+            # 不要进行归一化，因为归一化后容易把趋势抹平
+            pos_df[f'{f}_zscore'] = (pos_df[f] - roll.mean())   # / roll.std().replace(0, 1e-8)
+            # pos_df[f'{f}_zscore'] = pos_df[f]   # (pos_df[f] - roll.mean()) / roll.std().replace(0, 1e-8)
 
         # 标记直接失败（Pass/Fail 列）
         pos_df['direct_failure'] = (pos_df['Pass/Fail'] != 'Pass').astype(int)
@@ -331,7 +334,7 @@ def train(path, window_size=15, failure_threshold=4, top_causes=3, contamination
     df['filename'] = df['filename'].replace(r'_pos\d+', '', regex=True)
     df = df.sort_values(['DateTime', 'filename'])  #
 
-    df_use = df.copy()
+    df_use = df[df['DateTime'] > '2025/06/05']     # .copy()
     df_use.replace("Not_Analyzed", None, inplace=True)
 
     features = [
