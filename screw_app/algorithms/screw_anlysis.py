@@ -33,7 +33,7 @@ def plot_screw_analysis_trend(combined_df, result_path=None):
         if result_path is not None:
             plt.savefig(result_path, bbox_inches='tight', dpi=150)
         plt.close()
-        return
+        return 
 
     times = combined_df['DateTime']
     positions = combined_df['screw position']
@@ -136,3 +136,49 @@ def plot_screw_analysis_trend(combined_df, result_path=None):
     if result_path is not None:
         plt.savefig(result_path, dpi=150, bbox_inches='tight')
     plt.close()
+
+
+def filter_values(angle_list, torque_list, mode=0, min_value=0):
+    """
+    同步过滤angle和torque中的负值数据（保留两者均≥min_value的点）
+    返回过滤后的(angle_sublist, torque_sublist)
+    """
+    # 生成索引列表，仅保留两者均≥min_value的位置 
+    if mode == 0:
+        valid_indices = [idx for idx, (a, t) in enumerate(zip(angle_list, torque_list)) if a > min_value and t > min_value] 
+    elif mode == 1:
+        valid_indices = [idx for idx, (a, t) in enumerate(zip(angle_list, torque_list)) if a < min_value and t > min_value] 
+    elif mode == 2:
+        valid_indices = [idx for idx, (a, t) in enumerate(zip(angle_list, torque_list)) if t > min_value] 
+    else:
+        return angle_list, torque_list
+    # 提取过滤后的子列表（若没有有效数据返回空列表）
+    angle_sub = [angle_list[idx] for idx in valid_indices] if valid_indices else []
+    torque_sub = [torque_list[idx] for idx in valid_indices] if valid_indices else []
+    return angle_sub, torque_sub
+
+
+# ==================== 绘图函数 ====================
+def plot_comparison_test(row, random_state=2):
+
+    # 创建画布（总尺寸根据子图数量调整）
+    fig, axes = plt.subplots(1, 3, figsize=(24, 5), constrained_layout=True)
+    axes = axes.ravel()  # 展平为一维数组方便循环
+    raw_angle = row['angledata']
+    raw_torque = row['torquedata']
+
+    # 1. 
+    filtered_angle, filtered_torque = filter_values(raw_angle, raw_torque, min_value=0)
+
+        # 绘制曲线（使用固定颜色区分螺丝索引，透明度区分样本）, color=screw_color_map[s_idx]
+        ax.plot(filtered_angle, filtered_torque, alpha=1 - (sample_idx * 0.02), linewidth=1.2, marker='', linestyle='-', label=row['hsgsn'])
+    # 添加图例（仅显示当前子图的样本）
+    for ax in axes
+    ax.legend(loc='best', fontsize=8)    # frameon=True, 
+    ax.grid(True, linestyle='--', alpha=0.4)
+    axes.set_xlabel('Angle', fontsize=10)
+    axes[0].set_ylabel('Torque', fontsize=10)
+    # 添加总标题
+    fig.suptitle('Torque vs Angle Comparison by Recommended Action', fontsize=16, y=1.05)
+    plt.tight_layout()
+    plt.show()

@@ -72,7 +72,7 @@ class ScrewdriverReplacementAnalyzer:
             'torque_max': 1.0,          # 最高权重：最大扭矩直接反映拧紧力度
             'torque_final': 1.2,          # 
             # 'clamp_angle': 0.7,         # 夹紧扭矩不足是主要失效模式
-            # 'clamp_torque_percentage': 0.7,         # 
+            'gradient_negative_mean': 0.7,         # 
             'angle_max': 0.8,           # 角度超差影响装配精度
             # 'angle_sit': 0.6,           # 
             'angular_work_total': 0.9,  # 能量积分反映整体拧紧质量
@@ -85,7 +85,7 @@ class ScrewdriverReplacementAnalyzer:
 
         # 存储结构
         self.position_dfs = {}
-        self.position_results = {}
+        self.position_results = {} 
         self.scalers = {}
         self.combined_df = None
         self.cause_records = []
