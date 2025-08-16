@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>打螺丝制程-批杆异常预警</title>
+    <!-- 使用CDN引入Bootstrap和Font Awesome -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #0d6efd;
+            --success-color: #198754;
+            --warning-color: #ffc107;
+            --danger-color: #dc3545;
+            --info-color: #0dcaf0;
+        }
+
+        html {
+            font-size: 16px;
+        }
+
+        body {
+            font-family: 'Microsoft YaHei', sans-serif;
+            background-color: #f8f9fa;
+            padding: 20px;
+            color: #333;
+            line-height: 1.6;
+
+            background-image: url('/static/img/IMG20250815-181945.png'); /*大背景*/
+
+            background-size: cover; /* 覆盖整个区域（可能裁剪部分图片） */
+            background-position: center; /* 图片居中显示 */
+            background-repeat: no-repeat; /* 不重复 */
+
+            /* 最小高度为视口高度（确保背景覆盖整个页面） */
+            min-height: 100vh;
+
+            /* 移除默认边距和内边距 */
+            margin: 0;
+            padding: 0;
+
+
+        }
+
+        .container {
+            max-width: 1200px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            transition: all 0.3s ease;
+            margin-top: 2rem;
+
+        }
+
+        .container_top_div{
+            background-image: url('/static/img/IMG20250815-180513.png'); /*小图*/
+            background-size: cover; /* 覆盖整个区域（可能裁剪部分图片） */
+            background-position: center; /* 图片居中显示 */
+        }
+
+        .upload-section {
+            margin-bottom: 2rem;
+        }
+
+        .image-preview {
+            margin-top: 2rem;
+            max-width: 80%;
+        }
+
+        .error {
+            color: red;
+            margin: 1rem 0;
+        }
+
+        .success {
+            color: green;
+            margin: 1rem 0;
+        }
+
+        .page-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 0.5rem;
+            color: #212529;
+        }
+
+        .english-title {
+            font-size: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .section {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            border-radius: 8px;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .section:hover {
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: #212529;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 0.5rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background-color: var(--primary-color);
+            border-radius: 3px;
+        }
+
+        .upload-card {
+            background-color: #fff;
+            border: 1px dashed #dee2e6;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .upload-card:hover {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            transition: all 0.2s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #0a58ca;
+            border-color: #0a58ca;
+        }
+
+        .btn-success {
+            background-color: var(--success-color);
+            border-color: var(--success-color);
+            transition: all 0.2s ease;
+        }
+
+        .btn-success:hover {
+            background-color: #146c43;
+            border-color: #146c43;
+        }
+
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+            overflow: hidden;
+        }
+
+        .image-item {
+            position: relative;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .image-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .image-item:hover img {
+            transform: scale(1.03);
+        }
+
+        .image-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 0.5rem;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+            color: white;
+            border-bottom-left-radius: 6px;
+            border-bottom-right-radius: 6px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .image-item:hover .image-overlay {
+            opacity: 1;
+        }
+
+        .status-indicator {
+            display: inline-block;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-right: 0.5rem;
+        }
+
+        .status-ok {
+            background-color: rgba(25, 135, 84, 0.1);
+            color: var(--success-color);
+        }
+
+        .status-warning {
+            background-color: rgba(255, 193, 7, 0.1);
+            color: var(--warning-color);
+        }
+
+        .status-danger {
+            background-color: rgba(220, 53, 69, 0.1);
+            color: var(--danger-color);
+        }
+
+        .loading-spinner {
+            display: none;
+            width: 2rem;
+            height: 2rem;
+            margin: 0 auto;
+            border: 3px solid rgba(0, 0, 0, 0.1);
+            border-top: 3px solid var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        .card {
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .table-container {
+            overflow-x: auto;
+        }
+
+        .form-control {
+            font-size: 1.2rem !important;
+        }
+
+        .btn_size {
+            font-size: 1.5rem !important;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .drop-zone {
+            border: 2px dashed #dee2e6;
+            border-radius: 8px;
+            padding: 2rem;
+            text-align: center;
+            background-color: #f8f9fa;
+            color: #6c757d;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .drop-zone.dragover {
+            border-color: var(--primary-color);
+            background-color: #e9ecef;
+            color: var(--primary-color);
+        }
+
+        .alert {
+            margin-top: 20px;
+        }
+
+        .alert-dismissible {
+            position: relative;
+        }
+
+        .alert-dismissible .btn-close {
+            position: absolute;
+            right: 1rem;
+            top: 0.5rem;
+            padding: 0.5rem;
+            background: transparent;
+            border: none;
+            color: #000;
+            opacity: 0.7;
+        }
+
+        /* 自定义文件上传样式 */
+        .custom-file-input {
+            display: none;
+        }
+
+        .custom-file-label {
+            display: block;
+            width: 100%;
+            padding: 0.5rem 1rem;
+            border: 1px solid #ced4da;
+            border-radius: 0.25rem;
+            background-color: #fff;
+            color: #495057;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .custom-file-label:hover {
+            background-color: #f8f9fa;
+        }
+
+        .form-check-input:checked ~ .form-check-label {
+            color: var(--primary-color);
+        }
+
+        .help-text {
+            font-size: 0.875rem;
+            color: #6c757d;
+            margin-top: 0.25rem;
+        }
+
+        /* 响应式调整 */
+        @media (max-width: 991.98px) {
+            .container {
+                padding: 1.5rem;
+            }
+
+            .page-title {
+                font-size: 1.5rem;
+                margin-bottom: 0.9rem;
+            }
+
+            .english-title {
+                font-size: 0.75rem;
+            }
+
+            .section-title {
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (max-width: 767.98px) {
+            .container {
+                padding: 1rem;
+            }
+
+            .image-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title::after {
+                width: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="container_top_div">
+        <h1 class="page-title" align="center">打螺丝制程-批杆异常预警</h1>
+        <h6 class="page-title english-title" align="center">Screw Tightening Process - Batch Rod Anomaly Early
+            Warning</h6>
+    </div>
+    <div class="row">
+        <!-- 左侧上传区域 -->
+        <div class="col-md-4 mb-4 mb-md-0">
+            <div class="section">
+                <h2 class="section-title">数据上传 Data Upload</h2>
+                {% if error %}
+                    <div class="alert alert-danger">
+                        {{ error }}
+                    </div>
+                {% endif %}
+                <form id="uploadForm" class="drop-zone" method="post" enctype="multipart/form-data">
+
+                    <div class="mt-3">
+                        <div class="mb-3">
+                            <label for="fileInput" class="form-label">选择Excel文件</label>
+                            <input class="form-control" type="file" name="file" id="fileInput" accept=".csv,.xlsx,.xls"
+                                   required>
+                            <div class="form-text">支持.csv、.xlsx和.xls格式，最大10MB</div>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn_size">上传并处理</button>
+                    </div>
+
+
+                </form>
+                {% if filename %}
+                    <div class="alert alert-success">
+                        已成功上传文件: <strong>{{ filename }}</strong>
+                    </div>
+                {% endif %}
+
+                <div class="image-preview">
+                    <img src="/static/img/IMG20250815-180454.png" class="img-fluid">
+                </div>
+            </div>
+
+
+        </div>
+
+        <!-- 右侧显示区域 -->
+        <div class="col-md-8">
+
+            <!-- 计算结果输出区域 -->
+            <div class="section">
+                <h2 class="section-title">结果输出 Result Output</h2>
+                <div>
+
+                </div>
+                <div id="resultDisplay" class="mt-3">
+
+                    {% if image_url %}
+                        <div class="image-preview">
+                            <img src="{{ image_url }}" alt="上传的图片" class="img-fluid">
+                        </div>
+                    {% endif %}
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Bootstrap JS Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
